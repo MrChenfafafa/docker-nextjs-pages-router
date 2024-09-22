@@ -1,9 +1,15 @@
-sudo: required
+# 使用 Docker 服务
 services:
   - docker
 
+# 构建之前的步骤
 before_install:
-  - docker build -t Chen/docker-nextjs-pages-router -f Dockerfile.dev .
+  # 使用 Dockerfile.dev 文件构建 Docker 镜像
+  - docker build -t nextjs-app -f Dockerfile.dev .
 
+# 脚本部分
 script:
-  - docker run Chen/docker-nextjs-pages-router npm run lint -- -- coverage
+  # 运行 Docker 容器并执行 Next.js 的构建命令
+  - docker run nextjs-app npm run build
+  # 执行 Lint 检查
+  - docker run nextjs-app npm run lint
