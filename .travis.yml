@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t Chen/docker-nextjs-pages-router -f Dockerfile.dev .
+
+script:
+  - docker run Chen/docker-nextjs-pages-router npm run lint -- -- coverage
