@@ -23,16 +23,16 @@ jobs:
 
       # Step 3: Build the Docker image
       - name: Build Docker image
-        run: docker build -t nextjs-app:latest -f Dockerfile.dev .
+        run: docker build -t nextjs-app -f Dockerfile.dev .
 
       # Step 4: Run lint inside Docker container
       - name: Run lint inside Docker
-        run: docker run --rm nextjs-app:latest npm run lint
+        run: docker run --rm nextjs-app npm run lint
 
       # Step 5: Run build inside Docker container with environment variables
       - name: Run build inside Docker
-        run: docker run --env SUPABASE_URL=${{ secrets.SUPABASE_URL }} --env SUPABASE_KEY=${{ secrets.SUPABASE_KEY }} nextjs-app:latest npm run build
+        run: docker run --name --env SUPABASE_URL=${{ secrets.SUPABASE_URL }} --env SUPABASE_KEY=${{ secrets.SUPABASE_KEY }} nextjs-app npm run build
 
       # Optional: Remove Docker image to free up space
       - name: Clean up Docker images
-        run: docker rmi nextjs-app:latest
+        run: docker rmi nextjs-app
