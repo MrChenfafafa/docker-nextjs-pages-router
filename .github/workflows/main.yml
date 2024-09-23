@@ -23,7 +23,7 @@ jobs:
 
       # Step 3: Build the Docker image
       - name: Build Docker image
-        run: docker build -t nextjs-app:latest -f dockerfile.dev .
+        run: docker build -t nextjs-app:latest -f Dockerfile.dev .
 
       # Step 4: Run lint inside Docker container
       - name: Run lint inside Docker
