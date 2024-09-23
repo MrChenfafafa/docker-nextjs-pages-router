@@ -1,3 +1,4 @@
+sudo: required
 services:
   - docker
 
@@ -5,4 +6,5 @@ before_install:
   - docker build -t nextjs-app -f Dockerfile.dev .
 
 script:
-  - docker run nextjs-app sh -c "npm run build && npm run lint"
+  - docker run nextjs-app npm run build
+  - docker run nextjs-app npm run lint
