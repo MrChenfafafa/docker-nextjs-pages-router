@@ -32,7 +32,3 @@ jobs:
       # Step 5: Run build inside Docker container with environment variables
       - name: Run build inside Docker
         run: docker run nextjs-app npm run build
-
-      # Optional: Remove Docker image to free up space
-      - name: Clean up Docker images
-        run: docker rmi nextjs-app
