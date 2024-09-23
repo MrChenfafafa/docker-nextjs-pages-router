@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM node:alpine AS builder
 
 WORKDIR "/app"
 
@@ -7,7 +7,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# 运行阶段
+# 生产阶段
 FROM node:alpine
 
 WORKDIR "/app"
