@@ -31,7 +31,7 @@ jobs:
 
       # Step 5: Run build inside Docker container with environment variables
       - name: Run build inside Docker
-        run: docker run --name --env SUPABASE_URL=${{ secrets.SUPABASE_URL }} --env SUPABASE_KEY=${{ secrets.SUPABASE_KEY }} nextjs-app npm run build
+        run: docker run nextjs-app npm run build
 
       # Optional: Remove Docker image to free up space
       - name: Clean up Docker images
