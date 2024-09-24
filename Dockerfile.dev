@@ -1,12 +1,17 @@
 FROM node:alpine
-ARG SETUP_ENVINROMENT=production
+
+ARG supabaseUrl
+ARG supabaseKey
+
+ENV SUPABASE_URL=$supabaseUrl  
+ENV SUPABASE_KEY=$supabaseKey
+
 WORKDIR "/app"
 
 COPY package.json .
 RUN npm install
-# Copy the .env{SETUP_ENVINROMENT} file to the container
-# This will copy the .env.production.sample -> .env file if the SETUP_ENVINROMENT is production
-COPY .env.$SETUP_ENVINROMENT.sample .env
+
+
 COPY . .
 
  

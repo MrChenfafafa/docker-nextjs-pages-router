@@ -1,5 +1,5 @@
 FROM node:alpine AS base
-ARG SETUP_ENVINROMENT=production
+
 
 
 ### Dependencies ###
@@ -26,9 +26,7 @@ RUN corepack enable
 RUN corepack prepare pnpm@latest --activate
 WORKDIR /app
 
-# Copy the .env{SETUP_ENVINROMENT} file to the container
-# This will copy the .env.production.sample -> .env file if the SETUP_ENVINROMENT is production
-COPY .env.$SETUP_ENVINROMENT.sample .env
+
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
