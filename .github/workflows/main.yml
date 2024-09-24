@@ -24,8 +24,8 @@ jobs:
       # Step 3: Build the Docker image
       - name: Build Docker image
         run: |
-         docker build . --tag nextjs-app --file Dockerfile.dev --build-arg supabaseUrl=${{ secrets.SUPABASE_URL }} --build-arg supabaseKey=${{ secrets.SUPABASE_KEY }} 
-           
+          docker build . --tag nextjs-app  --build-arg supabaseUrl=${{ secrets.SUPABASE_URL }} --build-arg supabaseKey=${{ secrets.SUPABASE_KEY }}
+
       # Step 4: Run lint inside Docker container
       - name: Run lint inside Docker
         run: docker run --rm nextjs-app npm run lint

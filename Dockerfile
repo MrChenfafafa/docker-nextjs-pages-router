@@ -38,7 +38,11 @@ FROM base AS runner
 
 # Set NODE_ENV to production
 ENV NODE_ENV production
+ARG supabaseUrl
+ARG supabaseKey
 
+ENV SUPABASE_URL=$supabaseUrl  
+ENV SUPABASE_KEY=$supabaseKey
 # Disable Next.js telemetry
 # Learn more here: https://nextjs.org/telemetry
 ENV NEXT_TELEMETRY_DISABLED 1
