@@ -32,8 +32,3 @@ jobs:
       # Step 5: Run build inside Docker container with environment variables
       - name: Run build inside Docker
         run: docker run nextjs-app npm run build
-
-      # Step 6: Build the final image which ready to deploy
-      - name: Build Docker image
-        run: |
-          docker build . --tag nextjs-app --build-arg supabaseUrl=${{ secrets.SUPABASE_URL }} --build-arg supabaseKey=${{ secrets.SUPABASE_KEY }}
